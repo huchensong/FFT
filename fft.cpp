@@ -136,7 +136,7 @@ void fft_hcs (int16_t* in_buf,int16_t* out_buf,int16_t fft_length, int8_t base,i
         {
         case 0:
             //out_type=0,自然位序输出
-            cout<<"outbuf"<<reverse(2*i,bitwidth(fft_length)-1)<<"=inbuf"<<2*i<<endl;
+            //cout<<"outbuf"<<reverse(2*i,bitwidth(fft_length)-1)<<"=inbuf"<<2*i<<endl;
             out_buf[2*reverse(i,bitwidth(fft_length)-1)]   = in_buf[2*i]  ;
             out_buf[2*reverse(i,bitwidth(fft_length)-1)+1] = in_buf[2*i+1];
             break;

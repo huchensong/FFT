@@ -10,9 +10,9 @@ int main(){
     int num_row = point_num/num_coloum; 
     for(int k = 0;k<num_row;k++){
     for(int i = 0; i<num_coloum;i++){
-        outfile<<calculate_w(1,i+16*k,4096)<<",";
+        outfile<<"Complex"<<calculate_w(1,i+16*k,4096)<<",";
     }
     outfile<<"\\"<<endl;
     }
-    outfile<<"}"<<endl;
+    outfile<<"};"<<endl;
 }
