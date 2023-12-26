@@ -10,7 +10,7 @@
 #include <chrono>
 #include"fft.h"
 #define OPENMP_ENABLE
-
+#define pi 3.1415926
 using namespace std;
 
 
@@ -70,18 +70,18 @@ Complex calculate_w(int16_t n,int16_t k,int16_t N){
     return c;
 }
 
-//第二种计算旋转因子的方式，查表方式，memory花费较大，以空间换时间
-//首先考虑二维数组，但由于旋转因子的稀疏性，会有很多没用到的空间，利用率太低
-//再考虑类似字典的数据结构，hash表？
-//有两种方式 一种是在开始之前init table，第二种是提前给初始值，用代码的方式初始化
-
-Complex table_w(int16_t n,int16_t k,int16_t N){
-    //很容易由定义知道由二维数组/三维数组 ，以n,k,N作为索引进行寻址，
+Complex calculate_int_w(int16_t n,int16_t k,int16_t N){
+    //计算Wn_k = exp(-2*pi/N*n*k) 其中pi = acos(-1)
     Complex c;
     c.real(cos(2*acos(-1)*n*k/N));
     c.imag(sin(-2*acos(-1)*n*k/N));
     return c;
 }
+//第二种计算旋转因子的方式，查表方式，memory花费较大，以空间换时间
+//首先考虑二维数组，但由于旋转因子的稀疏性，会有很多没用到的空间，利用率太低
+//再考虑类似字典的数据结构，hash表？
+//有两种方式 一种是在开始之前init table，第二种是提前给初始值，用代码的方式初始化
+
 
 
 float logM_n(int16_t M, int16_t n){
@@ -312,7 +312,7 @@ void stage_routine(int8_t stage,int16_t fft_length,int8_t base,int16_t* in_buf,i
     int16_t block_length = fft_length/block_num;
     int16_t data_gap = block_length/base;
     unsigned concurrent_count = std::thread::hardware_concurrency();
-    cout<<"using"<<concurrent_count<<"threads";
+    //cout<<"using"<<concurrent_count<<"threads";
     // cout<<" fft_length ="<<fft_length<<" stage ="<<(int)stage<<" datagap = "<<data_gap<<endl;
     //分block进行运算，先计算存在几个block，每个block的起始地址相隔的距离
     int16_t block_cnt    = data_gap   ;

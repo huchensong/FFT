@@ -25,7 +25,7 @@ void    base8(int16_t i,int16_t data_gap,Complex* w,int16_t k,int16_t* in_buf)  
 void    stage_routine(int8_t stage,int16_t length,int8_t base,int16_t* in_buf,int16_t* out_buf)                           ;
 int8_t  bitwidth(int16_t fft_length);
 
-Complex base_8_w[4096]={
+static Complex base_8_w[4096]={
 Complex(1,-0),Complex(0.999999,-0.00153398),Complex(0.999995,-0.00306796),Complex(0.999989,-0.00460193),Complex(0.999981,-0.00613588),Complex(0.999971,-0.00766983),Complex(0.999958,-0.00920375),Complex(0.999942,-0.0107377),Complex(0.999925,-0.0122715),Complex(0.999905,-0.0138054),Complex(0.999882,-0.0153392),Complex(0.999858,-0.016873),Complex(0.999831,-0.0184067),Complex(0.999801,-0.0199404),Complex(0.999769,-0.0214741),Complex(0.999735,-0.0230077),\
 Complex(0.999699,-0.0245412),Complex(0.99966,-0.0260747),Complex(0.999619,-0.0276081),Complex(0.999575,-0.0291415),Complex(0.999529,-0.0306748),Complex(0.999481,-0.032208),Complex(0.999431,-0.0337412),Complex(0.999378,-0.0352742),Complex(0.999322,-0.0368072),Complex(0.999265,-0.0383401),Complex(0.999205,-0.0398729),Complex(0.999142,-0.0414056),Complex(0.999078,-0.0429383),Complex(0.999011,-0.0444708),Complex(0.998941,-0.0460032),Complex(0.99887,-0.0475355),\
 Complex(0.998795,-0.0490677),Complex(0.998719,-0.0505997),Complex(0.99864,-0.0521317),Complex(0.998559,-0.0536635),Complex(0.998476,-0.0551952),Complex(0.99839,-0.0567268),Complex(0.998302,-0.0582583),Complex(0.998211,-0.0597896),Complex(0.998118,-0.0613207),Complex(0.998023,-0.0628518),Complex(0.997925,-0.0643826),Complex(0.997825,-0.0659134),Complex(0.997723,-0.0674439),Complex(0.997618,-0.0689743),Complex(0.997511,-0.0705046),Complex(0.997402,-0.0720347),\

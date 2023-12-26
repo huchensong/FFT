@@ -9,6 +9,8 @@ using namespace std;
 #define test_times 10
 #define fft_length 512
 #define prinr2file 0
+
+
 int main(){
     //-------------读txt文件，准备测试数据-----------
     //如果test_times = 10 则读入10个txt文件的数据

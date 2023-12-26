@@ -23,7 +23,7 @@ $(TARGET): $(OBJECTS) $(src_dir)/fft.h
 	./$(src_dir)/$(TARGET)
 
 # Rule to build object files
-%.o: %.cpp $(src_dir)fft.h
+%.o: %.cpp $(src_dir)/fft.h
 	$(CXX) $(CXXFLAGS)  -c $< -o $@
 # $@表示目标
 # Rule to clean the project
